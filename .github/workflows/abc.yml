@@ -1,0 +1,32 @@
+name: KANISHKA-MDX-RUN
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 */6 * * *' # සෑම පැය 6කට වරක් ස්වයංක්‍රීයව Restart වේ (Action සීමාවන් නිසා)
+  workflow_dispatch: # ඕනෑම වෙලාවක ඔබටම Run කිරීමට බොත්තමක් ලබා දෙයි
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install Dependencies
+        run: |
+          npm install
+
+      - name: Start KANISHKA-MDX Bot
+        env:
+          SESSION_ID: ${{ secrets.SESSION_ID }} # රහස්‍ය යතුර මෙතැනින් ලබා ගනී
+        run: npm start
