@@ -1,5 +1,5 @@
 module.exports = {
-    SESSION_ID: process.env.SESSION_ID || 'NIMMA_SESSION_ID_ILLI_HAKI',
+    SESSION_ID: process.env.SESSION_ID || '𝙰𝚂𝙸𝚃𝙷𝙰-𝙼𝙳=134da48841ed6c24',
     BOT_NAME: 'KANISHKA-MDX',
     OWNER_NAME: 'Kanishka',
     PREFIX: '.',
